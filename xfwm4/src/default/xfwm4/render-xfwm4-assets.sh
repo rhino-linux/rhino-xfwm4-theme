@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 INKSCAPE="inkscape"
 OPTIPNG="optipng"
@@ -30,9 +30,9 @@ do
   for asset in `cat $INDEX`
   do
 
-    if [ -f $ASSETS_DIR/$asset.png ]; then
-      echo $ASSETS_DIR/$asset.png exists.
-    else
+    #f [[ -f $ASSETS_DIR/$asset.png ]]; then
+     # echo $ASSETS_DIR/$asset.png exists.
+    #else
       echo
       echo Rendering $ASSETS_DIR/$asset.png
 
@@ -41,7 +41,7 @@ do
           --export-dpi=$DPI \
           --export-filename=$ASSETS_DIR/$asset.png $SRC_FILE >/dev/null
       $OPTIPNG -o7 --quiet $ASSETS_DIR/$asset.png
-    fi
+   # fi
 
   # End asset loop
   done
